@@ -1,0 +1,24 @@
+{
+  "name": "system_monolith",
+  "version": "1.0.0",
+  "description": "Estudo de sistema monolitico",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run tsc -- --noEmit && jest",
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexsandercdm/monolith-system.git"
+  },
+  "keywords": [
+    "Monolith",
+    "System"
+  ],
+  "author": "Alexsander Moura",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexsandercdm/monolith-system/issues"
+  },
+  "homepage": "https://github.com/alexsandercdm/monolith-system#readme"
+}
