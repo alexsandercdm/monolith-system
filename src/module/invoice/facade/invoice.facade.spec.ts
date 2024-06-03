@@ -5,6 +5,7 @@ import InvoiceRepository from "../repository/invoice.repository";
 import FindInvoiceUseCase from "../usecase/find-invoice/find-invoice.usecase";
 import InvoiceFacade from "./invoice.facade";
 import GenerateInvoiceUseCase from "../usecase/generate-invoice/generate-invoice.usecase";
+import InvoiceFacadeFactory from "../factory/facade.factory";
 
 describe("Invoice Facade test", () => {
     let sequelize: Sequelize;
@@ -26,14 +27,16 @@ describe("Invoice Facade test", () => {
     });
 
     it("Should find a invoice with facade", async () => {
-        const repository = new InvoiceRepository();
-        const useCase = new FindInvoiceUseCase(repository);
+        // const repository = new InvoiceRepository();
+        // const useCase = new FindInvoiceUseCase(repository);
 
 
-        const invoiceUseCase = new InvoiceFacade({
-            findUseCase: useCase,
-            generateUseCase: undefined,
-        });
+        // const invoiceUseCase = new InvoiceFacade({
+        //     findUseCase: useCase,
+        //     generateUseCase: undefined,
+        // });
+
+        const invoiceUseCase = InvoiceFacadeFactory.create();
 
         const invoice = await InvoiceModel.create({
             id: "1",
@@ -85,13 +88,15 @@ describe("Invoice Facade test", () => {
     });
 
     it("Should generate a invoice with facade", async () => {
-        const repository = new InvoiceRepository();
-        const useCase = new GenerateInvoiceUseCase(repository);
+        // const repository = new InvoiceRepository();
+        // const useCase = new GenerateInvoiceUseCase(repository);
 
-        const invoiceUseCase = new InvoiceFacade({
-            findUseCase: undefined,
-            generateUseCase: useCase,
-        });
+        // const invoiceUseCase = new InvoiceFacade({
+        //     findUseCase: undefined,
+        //     generateUseCase: useCase,
+        // });
+
+        const invoiceUseCase = InvoiceFacadeFactory.create();
 
         const item1 = {
             id: "1",
