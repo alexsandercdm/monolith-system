@@ -1,10 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 import ClientModel from "../repository/client-adm.model";
-import ClientRepository from "../repository/client-adm.repository";
-import AddClientUsecase from "../usecase/add-client/add-client.usecase";
-import ClientAdmFacade from "./client-adm.facade";
-import FindClientUsecase from "../usecase/find-client/find-client.usacase";
 import ClientAdmFacadeFactory from "../factory/facade.factory";
+import { AddClientFacadeInputDto } from "./client-adm.facade.interface";
 
 describe("Client Adm Facade test", () => {
     let sequelize: Sequelize;
@@ -26,14 +23,6 @@ describe("Client Adm Facade test", () => {
     });
 
     it("should create a client-adm facade", async () => {
-        // const clientRepository = new ClientRepository();
-        // const addUsecase = new AddClientUsecase(clientRepository);
-        // const findUseCase = new FindClientUsecase(clientRepository);
-
-        // const usecaseProps = {
-        //     addUseCase: addUsecase,
-        //     findUseCase: findUseCase,
-        // }
 
         const facade = ClientAdmFacadeFactory.create();
 
@@ -41,7 +30,13 @@ describe("Client Adm Facade test", () => {
             id: "1",
             name: "Client 1",
             email: "x@x.com",
-            address: "Address 1",
+            document: "000",
+            street: "Street 1",
+            city: "City 1",
+            complement: "Complement 1",
+            number: "000",
+            state: "State 1",
+            zipCode: "000",
             createdAt: new Date(),
             updatedAt: new Date(),
         };
@@ -54,28 +49,32 @@ describe("Client Adm Facade test", () => {
         expect(result.id).toBe(client.id);
         expect(result.name).toBe(client.name);
         expect(result.email).toBe(client.email);
-        expect(result.address).toBe(client.address);
+        expect(result.document).toBe(client.document);
+        expect(result.street).toBe("Street 1");
+        expect(result.city).toBe("City 1");
+        expect(result.complement).toBe("Complement 1");
+        expect(result.number).toBe("000");
+        expect(result.state).toBe("State 1");
+        expect(result.zipCode).toBe("000");
 
 
     });
 
     it("should find a client-adm facade", async () => {
-        // const clientRepository = new ClientRepository();
-        // const addUsecase = new AddClientUsecase(clientRepository);
-        // const findUseCase = new FindClientUsecase(clientRepository);
-
-        // const usecaseProps = {
-        //     addUseCase: addUsecase,
-        //     findUseCase: findUseCase,
-        // }
 
         const facade = ClientAdmFacadeFactory.create();
 
-        const client = {
+        const client: AddClientFacadeInputDto = {
             id: "1",
             name: "Client 1",
             email: "x@x.com",
-            address: "Address 1",
+            street: "Street 1",
+            city: "City 1",
+            document: "000",
+            complement: "Complement 1",
+            number: "000",
+            state: "State 1",
+            zipCode: "000",
             createdAt: new Date(),
             updatedAt: new Date(),
         };
@@ -88,6 +87,11 @@ describe("Client Adm Facade test", () => {
         expect(result.id).toBe(client.id);
         expect(result.name).toBe(client.name);
         expect(result.email).toBe(client.email);
-        expect(result.address).toBe(client.address);
+        expect(result.document).toBe(client.document);
+        expect(result.street).toBe(client.street);
+        expect(result.city).toBe(client.city);
+        expect(result.complement).toBe(client.complement);
+        expect(result.state).toBe(client.state);
+        expect(result.zipCode).toBe(client.zipCode);
     });
 });

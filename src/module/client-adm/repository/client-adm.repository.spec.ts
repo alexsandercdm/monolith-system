@@ -3,6 +3,7 @@ import ClientModel from "./client-adm.model";
 import Client from "../domain/client.entity";
 import Id from "../../@shared/domain/value-object/id.value-object";
 import ClientRepository from "./client-adm.repository";
+import Address from "../../@shared/domain/value-object/address.value-object";
 
 describe("Client repository test", () => {
 
@@ -31,7 +32,15 @@ describe("Client repository test", () => {
             id: new Id("1"),
             name: "Client 1",
             email: "x@x.com",
-            address: "Address 1",
+            document: "000",
+            address: new Address({
+                street: "Street 1",
+                city: "City 1",
+                complement: "Complement 1",
+                number: "000",
+                state: "State 1",
+                zipCode: "000"
+            }),
         }
 
         const client = new Client(clientProps);
@@ -44,8 +53,12 @@ describe("Client repository test", () => {
         expect(result.id).toBeDefined();
         expect(result.name).toBe("Client 1");
         expect(result.email).toBe("x@x.com");
-        expect(result.address).toBe("Address 1");
-
+        expect(result.document).toBe("000");
+        expect(result.street).toBe("Street 1");
+        expect(result.complement).toBe("Complement 1");
+        expect(result.number).toBe("000");
+        expect(result.state).toBe("State 1");
+        expect(result.zipCode).toBe("000");
 
     });
 
@@ -54,7 +67,15 @@ describe("Client repository test", () => {
             id: new Id("1"),
             name: "Client 1",
             email: "x@x.com",
-            address: "Address 1",
+            document: "000",
+            address: new Address({
+                street: "Street 1",
+                city: "City 1",
+                complement: "Complement 1",
+                number: "000",
+                state: "State 1",
+                zipCode: "000"
+            }),  
         }
 
         const client = new Client(clientProps);
@@ -67,6 +88,11 @@ describe("Client repository test", () => {
         expect(result.id).toBeDefined();
         expect(result.name).toBe("Client 1");
         expect(result.email).toBe("x@x.com");
-        expect(result.address).toBe("Address 1");
+        expect(result.document).toBe("000");
+        expect(result.address.street).toBe("Street 1");
+        expect(result.address.complement).toBe("Complement 1");
+        expect(result.address.number).toBe("000");
+        expect(result.address.state).toBe("State 1");
+        expect(result.address.zipCode).toBe("000");
     });
 });

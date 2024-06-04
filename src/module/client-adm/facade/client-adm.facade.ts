@@ -21,14 +21,20 @@ export default class ClientAdmFacade implements ClientAdmFacadeInterface {
             id: input.id,
             name: input.name,
             email: input.email,
-            address: input.address,
+            document: input.document,
+            street: input.street,
+            city: input.city,
+            complement: input.complement,
+            number: input.number,
+            state: input.state,
+            zipCode: input.zipCode,
             createdAt: input.createdAt,
             updatedAt: input.updatedAt,
         });
     }
 
     async findClient(input: FindClientFacadeInputDto): Promise<FindClientFacadeOutputDto> {
-        return  await this._findUseCase.execute({id: input.clientId});
+        return await this._findUseCase.execute({ id: input.clientId });
     }
 
 }

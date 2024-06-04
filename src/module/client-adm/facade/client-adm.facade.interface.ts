@@ -1,5 +1,3 @@
-import UserCaseInterface from "../../@shared/domain/use-case/use-case-interface";
-import Client from "../domain/client.entity";
 
 export default interface ClientAdmFacadeInterface {
     addClient(input: AddClientFacadeInputDto): Promise<void>;
@@ -10,7 +8,13 @@ export interface AddClientFacadeInputDto {
     id?: string;
     name: string;
     email: string;
-    address: string;
+    document: string;
+    street: string;
+    city: string;
+    complement: string;
+    number: string;
+    state: string;
+    zipCode: string;
     createdAt?: Date;
     updatedAt?: Date;
 }
@@ -23,7 +27,13 @@ export interface FindClientFacadeOutputDto {
     id?: string;
     name: string;
     email: string;
-    address: string;
+    document: string;
+    street: string;
+    city: string;
+    complement: string;
+    number: string;
+    state: string;
+    zipCode: string;
     createdAt?: Date;
     updatedAt?: Date;
 }
