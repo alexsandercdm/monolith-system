@@ -15,10 +15,10 @@ export class ProductModel extends Model {
     @Column({ allowNull: false })
     declare description: string;
 
-    @Column({ allowNull: false })
+    @Column({ allowNull: true })
     declare purchasePrice: number;
 
-    @Column({ allowNull: false })
+    @Column({ allowNull: true })
     declare stock: number;
 
     @Column({ allowNull: false })

@@ -8,14 +8,18 @@ type InvoiceFacadeProps = {
 
 export default class InvoiceFacade implements InvoiceFacadeInterface {
 
-    constructor(private usecase: InvoiceFacadeProps){}
+    private _usecase: InvoiceFacadeProps;
+
+    constructor(usecase: InvoiceFacadeProps){
+        this._usecase = usecase;
+    }
     
     async find(input: FindInvoiceFacadeInputDto): Promise<FindInvoiceFacadeOutputDto> {
-        return await this.usecase.findUseCase.execute(input);
+        return await this._usecase.findUseCase.execute(input);
     }
     
     async generate(input: GenerateInvoiceFacadeInputDto): Promise<GenereateInvoiceFacadeOutputDto> {
-        const result = await this.usecase.generateUseCase.execute(input);
+        const result = await this._usecase.generateUseCase.execute(input);
 
         return {
             id: result.id,

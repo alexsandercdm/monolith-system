@@ -11,7 +11,9 @@ export default class CheckStockUseCase implements UserCaseInterface {
 
     async execute(input: CheckStockProductInputDto): Promise<CheckStockProductOutputDto> {
         const product = await this._productRepository.find(input.productId);
-
+        if (!product) {
+            throw new Error(`Product with id ${input.productId} not found`)
+        }
         return {
             productId: product.id.id,
             stock: product.stock,
