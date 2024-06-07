@@ -2,7 +2,9 @@
   "name": "system_monolith",
   "version": "1.0.0",
   "description": "Estudo de sistema monolitico",
+  "main": "index.ts",
   "scripts": {
+    "migrate": "node -r ts-node/register/transpile-only ./src/infrastructure/migrations/config-migrations/migrator-cli.ts",
     "test": "npm run tsc -- --noEmit && jest",
     "tsc": "tsc"
   },
@@ -30,6 +32,7 @@
     "sequelize": "^6.37.3",
     "sequelize-typescript": "^2.1.6",
     "sqlite3": "^5.1.7",
+    "umzug": "^3.8.1",
     "uuid": "^9.0.1",
     "yup": "^1.4.0"
   },
