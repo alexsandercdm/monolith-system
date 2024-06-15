@@ -1,5 +1,6 @@
 node_modules
 dist
-dist/tsconfig.tsbuildinfo
 database.sqlite
 package-lock.json
+src/api/controllers/.product-adm
+src/api/test/.product-adm
