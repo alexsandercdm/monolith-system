@@ -108,5 +108,5 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "src/api/controllers/.product-adm/product-adm.routes.ts"  ],
 }

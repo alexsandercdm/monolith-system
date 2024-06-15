@@ -2,11 +2,12 @@
   "name": "system_monolith",
   "version": "1.0.0",
   "description": "Estudo de sistema monolitico",
-  "main": "index.ts",
+  "main": "main.ts",
   "scripts": {
     "migrate": "node -r ts-node/register/transpile-only ./src/infrastructure/migrations/config-migrations/migrator-cli.ts",
     "test": "npm run tsc -- --noEmit && jest",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "start": "node ./dist/main.js"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,7 @@
     "@types/supertest": "^6.0.2",
     "@types/uuid": "^9.0.8",
     "jest": "^29.7.0",
+    "sequelize-cli": "^6.6.2",
     "supertest": "^7.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
