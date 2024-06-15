@@ -5,6 +5,20 @@ import ProductGateway from "../gateway/product.gateway";
 import { ProductModel } from "./product.model";
 
 export default class ProductRepository implements ProductGateway {
+
+    async updateStock(productId: string, stock: number): Promise<boolean> {
+
+        const find = await ProductModel.findOne({ where: { id: productId } });
+
+        if (!find) {
+            throw new Error("Product Not Found");
+        }
+
+        const result = await ProductModel.update({ stock }, { where: { id: productId } });
+
+        return result[0] === 1;
+    }
+
     async add(product: Product): Promise<void> {
         await ProductModel.create({
             id: product.id.id,

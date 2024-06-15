@@ -3,6 +3,7 @@ import AddProductUseCase from "./add-product.usecase";
 const MockRepository = () => {
     return {
         add: jest.fn(),
+        updateStock: jest.fn(),
         find: jest.fn(),
     }
 }
